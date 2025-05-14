@@ -1,85 +1,68 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="نموذج إدخال بيانات يعمل دون اتصال بالإنترنت">
-    <meta name="theme-color" content="#4285f4">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="LORD">
-    <title>LORD</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="manifest" href="manifest.json">
-    <link rel="icon" href="icons/lord-icon.png">
-    <link rel="apple-touch-icon" href="icons/lord-icon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="نموذج إدخال بيانات يعمل دون اتصال بالإنترنت">
+  <meta name="theme-color" content="#4285f4">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="LORD">
+  <title>LORD</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icons/lord-icon.png">
+  <link rel="apple-touch-icon" href="icons/lord-icon.png">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="logo-container">
-                <img src="icons/lord-logo.jpg" alt="LORD" class="lord-logo">
-            </div>
-            <button type="button" id="download-btn" class="header-btn" aria-label="تحميل البيانات">
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                    <polyline points="7 10 12 15 17 10"></polyline>
-                    <line x1="12" y1="15" x2="12" y2="3"></line>
-                </svg>
-            </button>
-        </header>
+  <div class="container">
+    <header>
+      <div class="logo-text">LORD</div>
+      <button type="button" id="download-btn" class="header-btn" aria-label="تحميل البيانات">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+          <polyline points="7 10 12 15 17 10"></polyline>
+          <line x1="12" y1="15" x2="12" y2="3"></line>
+        </svg>
+      </button>
+    </header>
 
-        <main>
-            <form id="contact-form">
-                <div class="form-group">
-                    <label for="name">الاسم</label>
-                    <input type="text" id="name" name="name" required>
-                    <div class="error" id="name-error"></div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="phone">رقم الهاتف</label>
-                    <input type="tel" id="phone" name="phone" required>
-                    <div class="error" id="phone-error"></div>
-                </div>
-                
-                <div class="button-group">
-                    <button type="submit" id="submit-btn">إرسال</button>
-                </div>
-            </form>
+    <main>
+      <form id="contact-form">
+        <div class="form-group">
+          <label for="name">الاسم</label>
+          <input type="text" id="name" name="name" required>
+          <div class="error" id="name-error"></div>
+        </div>
+        <div class="form-group">
+          <label for="phone">رقم الهاتف</label>
+          <input type="tel" id="phone" name="phone" required>
+          <div class="error" id="phone-error"></div>
+        </div>
+        <div class="button-group">
+          <button type="submit" id="submit-btn">إرسال</button>
+        </div>
+      </form>
 
-            <div class="notification" id="notification">
-                <p id="notification-message"></p>
-            </div>
+      <div class="notification" id="notification">
+        <p id="notification-message"></p>
+      </div>
+    </main>
 
-            <div class="collapsible-container">
-                <button class="collapsible-button">عرض البيانات المحفوظة</button>
-                <div class="submissions-container collapsible-content">
-                    <div id="submissions-list"></div>
-                </div>
-            </div>
-        </main>
+    <footer>
+      <p></p>
+    </footer>
+  </div>
 
-        <footer>
-            <p></p>
-        </footer>
-    </div>
-
-    <script src="app.js"></script>
-    <script>
-        // Register service worker
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('./service-worker.js')
-                    .then(registration => {
-                        console.log('Service Worker registered with scope:', registration.scope);
-                    })
-                    .catch(error => {
-                        console.error('Service Worker registration failed:', error);
-                    });
-            });
-        }
-    </script>
+  <script src="app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./service-worker.js')
+          .then(reg => console.log('Service Worker registered with scope:', reg.scope))
+          .catch(err => console.error('Service Worker registration failed:', err));
+      });
+    }
+  </script>
 </body>
 </html>
-
