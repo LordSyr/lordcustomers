@@ -29,7 +29,8 @@ body {
     min-height: 100vh;
     text-align: right;
     direction: rtl;
-    background-image: linear-gradient(to bottom, transparent, rgba(66, 133, 244, 0.05)), repeating-linear-gradient(45deg, transparent, transparent 20px, var(--accent-line) 20px, var(--accent-line) 21px);
+    background-image: linear-gradient(to bottom, transparent, rgba(66, 133, 244, 0.05)), 
+                      repeating-linear-gradient(45deg, transparent, transparent 20px, var(--accent-line) 20px, var(--accent-line) 21px);
 }
 
 .container {
@@ -62,16 +63,11 @@ header::after {
     background-color: var(--accent-line);
 }
 
-.logo-container {
-    height: 65px;
-    display: flex;
-    align-items: center;
-}
-
-.lord-logo {
-    height: 60px;
-    width: 1000px;
-    object-fit: contain;
+.logo-text {
+    font-family: Georgia, serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--white);
 }
 
 .header-btn {
@@ -86,7 +82,7 @@ header::after {
     cursor: pointer;
     padding: 0;
     transition: background-color 0.3s;
-    font-size: 0.85rem;
+    font-size: 1rem;
 }
 
 .header-btn:hover {
@@ -295,13 +291,12 @@ button:active {
 
 .submission-item {
     padding: 15px;
+    border: 1px solid var(--medium-gray);
     border-radius: var(--border-radius);
     background-color: var(--darker-bg);
     display: grid;
     grid-template-columns: 1fr;
     gap: 15px;
-    align-items: center;
-    border: 1px solid var(--medium-gray);
     position: relative;
     overflow: hidden;
 }
@@ -340,13 +335,15 @@ footer {
     .container {
         padding: 15px;
     }
-    form, .submissions-container {
+    form,
+    .submissions-container {
         padding: 15px;
     }
     .button-group {
         flex-direction: column;
     }
-    #submit-btn, #download-btn {
+    #submit-btn,
+    #download-btn {
         width: 100%;
     }
 }
