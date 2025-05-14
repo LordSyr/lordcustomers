@@ -24,7 +24,7 @@ jobs:
       - name: Upload site contents
         uses: actions/upload-pages-artifact@v1
         with:
-          path: ./   # ensure this points at your index.html, CSS, JS, etc.
+          path: ./   # bundle everything in the repo root
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v1
